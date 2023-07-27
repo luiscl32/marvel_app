@@ -137,7 +137,7 @@ class Result {
         modified: json["modified"],
         isbn: json["isbn"],
         upc: json["upc"],
-        diamondCode: diamondCodeValues.map[json["diamondCode"]]!,
+        diamondCode: diamondCodeValues.map[json["diamondCode"]],
         ean: eanValues.map[json["ean"]]!,
         issn: json["issn"],
         format: json["format"],
@@ -356,8 +356,8 @@ class DateElement {
   });
 
   factory DateElement.fromJson(Map<String, dynamic> json) => DateElement(
-        type: dateTypeValues.map[json["type"]]!,
-        date: dateEnumValues.map[json["date"]]!,
+        type: dateTypeValues.map[json["type"]],
+        date: dateEnumValues.map[json["date"]],
       );
 
   Map<String, dynamic> toJson() => {
@@ -407,7 +407,7 @@ final eanValues = EnumValues({
 
 class Thumbnail {
   final String? path;
-  final Extension? extension;
+  final String? extension;
 
   Thumbnail({
     this.path,
@@ -427,7 +427,7 @@ class Thumbnail {
 
 enum Extension { JPG }
 
-final extensionValues = EnumValues({"jpg": Extension.JPG});
+final extensionValues = EnumValues({"jpg": "jpg"});
 
 class Price {
   final PriceType? type;
@@ -439,7 +439,7 @@ class Price {
   });
 
   factory Price.fromJson(Map<String, dynamic> json) => Price(
-        type: priceTypeValues.map[json["type"]]!,
+        type: priceTypeValues.map[json["type"]],
         price: json["price"]?.toDouble(),
       );
 
@@ -500,7 +500,7 @@ class StoriesItem {
   factory StoriesItem.fromJson(Map<String, dynamic> json) => StoriesItem(
         resourceUri: json["resourceURI"],
         name: json["name"],
-        type: itemTypeValues.map[json["type"]]!,
+        type: itemTypeValues.map[json["type"]],
       );
 
   Map<String, dynamic> toJson() => {
@@ -565,7 +565,7 @@ class Url {
   });
 
   factory Url.fromJson(Map<String, dynamic> json) => Url(
-        type: urlTypeValues.map[json["type"]]!,
+        type: urlTypeValues.map[json["type"]],
         url: json["url"],
       );
 

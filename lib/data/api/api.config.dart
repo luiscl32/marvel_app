@@ -8,7 +8,7 @@ class _ApiKeys {
 class ApiConfig {
   ApiConfig._();
 
-  static String getRequest(String endpoint, int? offset) {
-    return 'http://gateway.marvel.com/v1/public/$endpoint?ts=1000&apikey=${_ApiKeys.publicKey}&hash=${_ApiKeys.hash}$offset!';
+  static String getRequest(String endpoint, int offset) {
+    return 'http://gateway.marvel.com/v1/public/$endpoint?ts=1000&apikey=${_ApiKeys.publicKey}&hash=${_ApiKeys.hash}&offset=$offset';
   }
 }

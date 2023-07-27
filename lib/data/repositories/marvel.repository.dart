@@ -8,9 +8,9 @@ class MarvelRepository extends AbstractMarvelRepository {
   Future<MarvelGeneralDataModel?> fetchDataBySection(
       {required String endpoint, int? offset}) async {
     Dio dio = Dio();
+    String url = ApiConfig.getRequest(endpoint, offset!);
 
-    final Response response =
-        await dio.get(ApiConfig.getRequest(endpoint, offset));
+    final Response response = await dio.get(url);
 
     if (response.data == null) {
       return null;

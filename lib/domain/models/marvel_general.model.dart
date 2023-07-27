@@ -138,7 +138,7 @@ class Result {
         isbn: json["isbn"],
         upc: json["upc"],
         diamondCode: diamondCodeValues.map[json["diamondCode"]],
-        ean: eanValues.map[json["ean"]]!,
+        ean: eanValues.map[json["ean"]],
         issn: json["issn"],
         format: json["format"],
         pageCount: json["pageCount"],

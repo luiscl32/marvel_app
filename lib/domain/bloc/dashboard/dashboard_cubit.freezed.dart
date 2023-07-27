@@ -20,7 +20,7 @@ mixin _$DashboardState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Data data) loaded,
+    required TResult Function(List<Result> results) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$DashboardState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Data data)? loaded,
+    TResult? Function(List<Result> results)? loaded,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$DashboardState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Data data)? loaded,
+    TResult Function(List<Result> results)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Data data) loaded,
+    required TResult Function(List<Result> results) loaded,
     required TResult Function() error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Data data)? loaded,
+    TResult? Function(List<Result> results)? loaded,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Data data)? loaded,
+    TResult Function(List<Result> results)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -238,7 +238,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Data data) loaded,
+    required TResult Function(List<Result> results) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -249,7 +249,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Data data)? loaded,
+    TResult? Function(List<Result> results)? loaded,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -260,7 +260,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Data data)? loaded,
+    TResult Function(List<Result> results)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -317,7 +317,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Data data});
+  $Res call({List<Result> results});
 }
 
 /// @nodoc
@@ -330,13 +330,13 @@ class __$$_LoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? results = null,
   }) {
     return _then(_$_Loaded(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+      null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<Result>,
     ));
   }
 }
@@ -344,14 +344,19 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.data);
+  const _$_Loaded(final List<Result> results) : _results = results;
 
+  final List<Result> _results;
   @override
-  final Data data;
+  List<Result> get results {
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
 
   @override
   String toString() {
-    return 'DashboardState.loaded(data: $data)';
+    return 'DashboardState.loaded(results: $results)';
   }
 
   @override
@@ -359,11 +364,12 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._results, _results));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_results));
 
   @JsonKey(ignore: true)
   @override
@@ -376,10 +382,10 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Data data) loaded,
+    required TResult Function(List<Result> results) loaded,
     required TResult Function() error,
   }) {
-    return loaded(data);
+    return loaded(results);
   }
 
   @override
@@ -387,10 +393,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Data data)? loaded,
+    TResult? Function(List<Result> results)? loaded,
     TResult? Function()? error,
   }) {
-    return loaded?.call(data);
+    return loaded?.call(results);
   }
 
   @override
@@ -398,12 +404,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Data data)? loaded,
+    TResult Function(List<Result> results)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(data);
+      return loaded(results);
     }
     return orElse();
   }
@@ -447,9 +453,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements DashboardState {
-  const factory _Loaded(final Data data) = _$_Loaded;
+  const factory _Loaded(final List<Result> results) = _$_Loaded;
 
-  Data get data;
+  List<Result> get results;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -493,7 +499,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Data data) loaded,
+    required TResult Function(List<Result> results) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -504,7 +510,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Data data)? loaded,
+    TResult? Function(List<Result> results)? loaded,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -515,7 +521,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Data data)? loaded,
+    TResult Function(List<Result> results)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {

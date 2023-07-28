@@ -8,6 +8,7 @@ class ComicCard extends StatelessWidget {
     required this.path,
     required this.extension,
     required this.issueNumber,
+    required this.onPress,
   });
 
   final String title;
@@ -15,13 +16,14 @@ class ComicCard extends StatelessWidget {
 
   final String path;
   final String extension;
+  final VoidCallback onPress;
 
   String getImage() => '$path.$extension';
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPress,
       child: _ComicInfo(
         imageUrl: getImage(),
         title: title,

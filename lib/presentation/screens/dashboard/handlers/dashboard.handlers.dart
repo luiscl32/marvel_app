@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/domain/bloc/dashboard/dashboard_cubit.dart';
+import 'package:marvel_app/presentation/router/router.dart';
 
 class DashboardHandlers {
   DashboardHandlers({required this.context});
@@ -17,7 +18,13 @@ class DashboardHandlers {
     await context.read<DashboardCubit>().onSearch(title: title);
   }
 
-  void unFocusKeyboard() {
-    FocusManager.instance.primaryFocus!.unfocus();
+  void onNavigateToDetail({required int id}) {
+    Navigator.pushNamed(
+      context,
+      ScreenPaths.detail,
+      arguments: {
+        'id': id,
+      },
+    );
   }
 }

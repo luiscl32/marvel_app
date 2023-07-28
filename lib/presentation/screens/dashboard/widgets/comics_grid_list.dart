@@ -57,6 +57,9 @@ class _ComicsGridListState extends State<ComicsGridList> {
             final _data = results[index];
 
             return ComicCard(
+              onPress: () {
+                _handlers.onNavigateToDetail(id: _data.id!);
+              },
               path: _data.thumbnail!.path!,
               extension: _data.thumbnail!.extension!.toString(),
               title: _data.title!,

@@ -16,38 +16,47 @@ class DetailDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          child: Text(
-            description,
-            style: const TextStyle(fontSize: 16, color: Colors.black45),
-            textAlign: TextAlign.justify,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 12,
           ),
-        ),
-        const SizedBox(
-          height: 12,
-        ),
-        Text(
-          'Format: $format',
-          style: _DescriptionText(),
-        ),
-        const SizedBox(
-          height: 12,
-        ),
-        Text(
-          'Pages: $pages',
-          style: _DescriptionText(),
-        ),
-        const SizedBox(
-          height: 12,
-        ),
-        Text(
-          'Issue number: $issueNumber',
-          style: _DescriptionText(),
-        ),
-      ],
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              description,
+              style: const TextStyle(fontSize: 16, color: Colors.black45),
+              textAlign: TextAlign.justify,
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            'Format: $format',
+            style: _DescriptionText(),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            'Pages: $pages',
+            style: _DescriptionText(),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            'Issue number: $issueNumber',
+            style: _DescriptionText(),
+          ),
+        ],
+      ),
     );
   }
 

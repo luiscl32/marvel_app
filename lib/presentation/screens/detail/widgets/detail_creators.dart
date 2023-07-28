@@ -11,42 +11,56 @@ class DetailCreators extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(
-          height: 12,
-        ),
-        const Text(
-          'Creators',
+    if (creators.isEmpty) {
+      return const Center(
+        child: Text(
+          'This comic no have creators.',
           style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+            fontSize: 18,
+            color: Colors.black54,
           ),
         ),
-        const SizedBox(
-          height: 12,
-        ),
-        GridView.builder(
-            itemCount: creators.length,
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                mainAxisExtent: 48,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10),
-            itemBuilder: (_, index) {
-              final String name = creators[index].name!;
-              final String role = creators[index].role!;
+      );
+    }
 
-              return _CreatorInfo(
-                name: name,
-                role: role,
-              );
-            }),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 12,
+          ),
+          const Text(
+            'Creators',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          GridView.builder(
+              itemCount: creators.length,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisExtent: 60,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10),
+              itemBuilder: (_, index) {
+                final String name = creators[index].name!;
+                final String role = creators[index].role!;
+
+                return _CreatorInfo(
+                  name: name,
+                  role: role,
+                );
+              }),
+        ],
+      ),
     );
   }
 }
@@ -64,7 +78,7 @@ class _CreatorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * .25,
+      width: MediaQuery.of(context).size.width * .33,
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           color: Colors.red.shade600, borderRadius: BorderRadius.circular(8)),

@@ -92,7 +92,7 @@ class Result {
   final String? title;
   final int? issueNumber;
   final String? variantDescription;
-  final dynamic description;
+  final String? description;
   final String? modified;
   final String? isbn;
   final String? upc;

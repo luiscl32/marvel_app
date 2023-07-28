@@ -40,8 +40,9 @@ class _Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     final String path = result.thumbnail!.path!;
     final String extension = result.thumbnail!.extension!;
-    final String title = result.title.toString();
-    final String description = result.description!.toString();
+    final String title = result.title ?? 'This comic no have a title';
+    final String description =
+        result.description ?? 'This comic no have a description.';
     final String format = result.format!.toString();
     final int pages = result.pageCount!;
     final int issueNumber = result.issueNumber!;
@@ -50,6 +51,7 @@ class _Detail extends StatelessWidget {
     final String image = '$path.$extension';
 
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

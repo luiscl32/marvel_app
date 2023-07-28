@@ -15,19 +15,21 @@ class DetailHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 120,
+      height: 320,
       child: Stack(
         children: [
           FadeInImage.assetNetwork(
             placeholder: Assets.loading,
             image: image,
+            fit: BoxFit.cover,
+            width: double.infinity,
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: 40,
-              color: Colors.black45,
+              height: 100,
+              color: Colors.black54,
               child: Center(
                 child: Text(
                   title,

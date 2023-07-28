@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_app/domain/bloc/dashboard/dashboard_cubit.dart';
 import 'package:marvel_app/domain/models/marvel_general.model.dart';
 import 'package:marvel_app/presentation/commons/widgets.dart';
 import 'package:marvel_app/presentation/screens/dashboard/handlers/dashboard.handlers.dart';

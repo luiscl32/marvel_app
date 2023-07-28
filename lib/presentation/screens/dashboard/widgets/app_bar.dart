@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:marvel_app/presentation/commons/assets/assets.dart';
+import 'package:marvel_app/presentation/screens/dashboard/widgets/custom_search_bar.dart';
 
 class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
   const DashboardAppbar({super.key});
@@ -8,6 +9,7 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       height: preferredSize.height,
       color: Colors.red.shade600,
       alignment: Alignment.bottomLeft,
@@ -16,24 +18,21 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
           horizontal: 16,
           vertical: 8,
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SvgPicture.asset(
-              Assets.logo,
-              width: 100,
-              height: 40,
-            ),
-            Expanded(child: Container()),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                size: 32,
-                color: Colors.white,
+        child: SizedBox(
+          width: double.maxFinite,
+          height: 48,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                Assets.logo,
+                width: 100,
+                height: 40,
               ),
-            ),
-          ],
+              Expanded(child: Container()),
+              const CustomSearchBar()
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:marvel_app/presentation/commons/assets/assets.dart';
@@ -18,10 +16,24 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
           horizontal: 16,
           vertical: 8,
         ),
-        child: SvgPicture.asset(
-          Assets.logo,
-          width: 100,
-          height: 40,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            SvgPicture.asset(
+              Assets.logo,
+              width: 100,
+              height: 40,
+            ),
+            Expanded(child: Container()),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+                size: 32,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );

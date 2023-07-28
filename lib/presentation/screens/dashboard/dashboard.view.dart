@@ -15,7 +15,13 @@ class DashboardView extends StatelessWidget {
           loading: () => const Center(
             child: Text('loading'),
           ),
-          loaded: (marvelData) => ComicsGridList(marvelData: marvelData),
+          loaded: (marvelData) => Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
+            child: ComicsGridList(marvelData: marvelData),
+          ),
           error: () => const Center(
             child: Text('error'),
           ),

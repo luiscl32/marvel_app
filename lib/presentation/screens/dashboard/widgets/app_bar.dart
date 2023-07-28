@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:marvel_app/presentation/commons/assets/assets.dart';
+import 'package:marvel_app/presentation/screens/dashboard/handlers/dashboard.handlers.dart';
 import 'package:marvel_app/presentation/screens/dashboard/widgets/custom_search_bar.dart';
 
 class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -8,6 +9,8 @@ class DashboardAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    DashboardHandlers _handlers = DashboardHandlers(context: context);
+
     return Container(
       width: MediaQuery.of(context).size.width,
       height: preferredSize.height,

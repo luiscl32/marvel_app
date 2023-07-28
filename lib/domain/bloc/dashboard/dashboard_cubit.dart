@@ -20,7 +20,7 @@ class DashboardCubit extends Cubit<DashboardState> {
         emit(const DashboardState.loading());
 
         final MarvelGeneralDataModel? response = await repository
-            .fetchDataBySection(endpoint: endpoint, offset: offset);
+            .fetchDataBySection(endpoint: endpoint, offset: offset, title: '');
 
         List<Result> results = [];
 
@@ -35,7 +35,7 @@ class DashboardCubit extends Cubit<DashboardState> {
         List<Result> oldResults = results;
 
         final MarvelGeneralDataModel? response = await repository
-            .fetchDataBySection(endpoint: endpoint, offset: offset);
+            .fetchDataBySection(endpoint: endpoint, offset: offset, title: '');
 
         if (response == null) {
           emit(const DashboardState.error());
@@ -43,6 +43,23 @@ class DashboardCubit extends Cubit<DashboardState> {
           final List<Result> newResults =
               {...oldResults, ...response.data!.results!}.toList();
           emit(DashboardState.loaded(newResults));
+        }
+      },
+    );
+  }
+
+  Future<void> onSearch({required String title}) async {
+    state.whenOrNull(
+      loaded: (results) async {
+        emit(const DashboardState.loading());
+        final MarvelGeneralDataModel? response = await repository
+            .fetchDataBySection(endpoint: 'comics', offset: 0, title: title);
+
+        if (response == null) {
+          emit(const DashboardState.error());
+        } else {
+          final List<Result> results = response.data!.results!;
+          emit(DashboardState.loaded(results));
         }
       },
     );

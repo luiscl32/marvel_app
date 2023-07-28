@@ -12,4 +12,12 @@ class DashboardHandlers {
         .read<DashboardCubit>()
         .fetchData(endpoint: 'comics', offset: offset);
   }
+
+  void onSearch({required String title}) async {
+    await context.read<DashboardCubit>().onSearch(title: title);
+  }
+
+  void unFocusKeyboard() {
+    FocusManager.instance.primaryFocus!.unfocus();
+  }
 }

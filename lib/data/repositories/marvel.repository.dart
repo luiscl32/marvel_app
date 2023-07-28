@@ -6,9 +6,9 @@ import 'package:dio/dio.dart';
 class MarvelRepository extends AbstractMarvelRepository {
   @override
   Future<MarvelGeneralDataModel?> fetchDataBySection(
-      {required String endpoint, int? offset}) async {
+      {required String endpoint, int? offset, String title = ''}) async {
     Dio dio = Dio();
-    String url = ApiConfig.getRequest(endpoint, offset!);
+    String url = ApiConfig.getRequest(endpoint, offset!, title);
 
     final Response response = await dio.get(url);
 

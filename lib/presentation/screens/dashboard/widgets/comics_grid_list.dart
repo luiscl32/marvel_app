@@ -57,20 +57,7 @@ class _ComicsGridListState extends State<ComicsGridList> {
       shrinkWrap: true,
       controller: _scrollController,
       slivers: [
-        const SliverToBoxAdapter(
-          child: SizedBox(
-            width: double.infinity,
-            height: 40,
-            child: Text(
-              'Latest comics',
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        const _ListTitle(),
         SliverGrid.builder(
           itemCount: results.length,
           itemBuilder: (_, index) {
@@ -93,13 +80,48 @@ class _ComicsGridListState extends State<ComicsGridList> {
             crossAxisSpacing: 10,
           ),
         ),
-        const SliverToBoxAdapter(
-          child: SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: Center(child: CircularProgressIndicator())),
-        )
+        const _ListLoader()
       ],
+    );
+  }
+}
+
+class _ListLoader extends StatelessWidget {
+  const _ListLoader({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SliverToBoxAdapter(
+      child: SizedBox(
+          width: double.infinity,
+          height: 48,
+          child: Center(child: CircularProgressIndicator())),
+    );
+  }
+}
+
+class _ListTitle extends StatelessWidget {
+  const _ListTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SliverToBoxAdapter(
+      child: SizedBox(
+        width: double.infinity,
+        height: 40,
+        child: Text(
+          'Latest comics',
+          style: TextStyle(
+            color: Colors.black54,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }

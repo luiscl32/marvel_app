@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/domain/bloc/detail/detail_cubit.dart';
 import 'package:marvel_app/domain/models/detail.model.dart';
+import 'package:marvel_app/presentation/commons/widgets.dart';
 import 'package:marvel_app/presentation/screens/detail/widgets/detail.widgets.dart';
 
 class DetailView extends StatelessWidget {
@@ -13,9 +14,7 @@ class DetailView extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => Container(),
-          loading: () => const Center(
-            child: Text('loading'),
-          ),
+          loading: () => const ShimmerDetail(),
           loaded: (result) => _Detail(
             result: result,
           ),

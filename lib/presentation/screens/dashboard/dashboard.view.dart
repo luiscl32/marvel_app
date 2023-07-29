@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/domain/bloc/dashboard/dashboard_cubit.dart';
+import 'package:marvel_app/presentation/commons/widgets.dart';
 import 'package:marvel_app/presentation/screens/dashboard/widgets/dashboard.widgets.dart';
 
 class DashboardView extends StatelessWidget {
@@ -12,9 +13,7 @@ class DashboardView extends StatelessWidget {
       builder: (_, state) {
         return state.when(
           initial: () => Container(),
-          loading: () => const Center(
-            child: Text('loading'),
-          ),
+          loading: () => const ShimmerCardList(),
           loaded: (marvelData) => Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 10,

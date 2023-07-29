@@ -15,6 +15,6 @@ the app contains:
 
 
 ## Screenshots
-[url=https://ibb.co/7kn3Vdb][img]https://i.ibb.co/J3vY2wC/Screenshot-2023-07-29-at-7-25-02-PM.png[/img][/url]
-[url=https://ibb.co/SwRvvsG][img]https://i.ibb.co/RTzHHvd/Screenshot-2023-07-29-at-7-25-16-PM.png[/img][/url]
-[url=https://ibb.co/TTsVzC2][img]https://i.ibb.co/ZJ0nyZX/Screenshot-2023-07-29-at-7-26-00-PM.png[/img][/url]
+<img width="384" alt="Screenshot 2023-07-29 at 7 25 02 PM" src="https://github.com/luiscl32/marvel_app/assets/8031026/66977a44-0583-4590-8ed4-7dc41454ae24">
+<img width="386" alt="Screenshot 2023-07-29 at 7 25 16 PM" src="https://github.com/luiscl32/marvel_app/assets/8031026/778fa9a3-d764-4460-ad96-644b1b9219f6">
+<img width="381" alt="Screenshot 2023-07-29 at 7 26 00 PM" src="https://github.com/luiscl32/marvel_app/assets/8031026/20596639-6830-4765-8c76-5f25f9c1d6f8">

@@ -6,12 +6,12 @@ is a comic application for Bia energy technical challenge.
 
 the app contains:
 
-   [x] bloc/cubit + freezed - for state managment
-   [x] SOLID principles in widgets
-   [x] grid view and list view for the API data
-   [x] error view for network and api
-   [x] loadings with shimmers for loading states
-   [x] infinity scroll for the grid list
+   - bloc/cubit + freezed - for state managment
+   - SOLID principles in widgets
+   - grid view and list view for the API data
+   - error view for network and api
+   - loadings with shimmers for loading states
+   - infinity scroll for the grid list
 
 
 ## Screenshots

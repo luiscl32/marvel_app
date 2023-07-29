@@ -116,12 +116,15 @@ class _ComicImage extends StatelessWidget {
     return SizedBox(
       width: double.maxFinite,
       height: 280,
-      child: FadeInImage.assetNetwork(
-        placeholder: Assets.loading,
-        image: imageUrl,
-        fit: BoxFit.fill,
-        width: double.maxFinite,
-        height: 280,
+      child: Hero(
+        tag: UniqueKey(),
+        child: FadeInImage.assetNetwork(
+          placeholder: Assets.loading,
+          image: imageUrl,
+          fit: BoxFit.fill,
+          width: double.maxFinite,
+          height: 280,
+        ),
       ),
     );
   }

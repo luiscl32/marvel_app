@@ -12,10 +12,12 @@ class DetailPage extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Map<String, int>;
     final int id = data['id']!;
 
-    return Scaffold(
-        body: BlocProvider(
-      create: (context) => DetailCubit()..fetchDetail(id: id),
-      child: DetailView(id: id),
-    ));
+    return SafeArea(
+      child: Scaffold(
+          body: BlocProvider(
+        create: (context) => DetailCubit()..fetchDetail(id: id),
+        child: DetailView(id: id),
+      )),
+    );
   }
 }

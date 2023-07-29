@@ -9,7 +9,7 @@ part 'dashboard_cubit.freezed.dart';
 class DashboardCubit extends Cubit<DashboardState> {
   DashboardCubit() : super(const DashboardState.initial());
 
-  MarvelRepository repository = MarvelRepository();
+  DashboardRepository repository = DashboardRepository();
 
   Future<void> fetchData({
     required String endpoint,
@@ -63,5 +63,9 @@ class DashboardCubit extends Cubit<DashboardState> {
         }
       },
     );
+  }
+
+  void retry() {
+    emit(const DashboardState.initial());
   }
 }

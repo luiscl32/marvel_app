@@ -14,7 +14,7 @@ class CustomSearchBar extends StatelessWidget {
     return SearchBarAnimation(
       searchBoxWidth: MediaQuery.of(context).size.width * 0.6,
       textEditingController: TextEditingController(),
-      isOriginalAnimation: false,
+      isOriginalAnimation: true,
       trailingWidget: const Icon(
         Icons.search,
         size: 20,
@@ -30,8 +30,8 @@ class CustomSearchBar extends StatelessWidget {
         size: 20,
         color: Colors.black,
       ),
-      onChanged: (title) => _handlers.onSearch(
-        title: title,
+      onChanged: (String title) => _handlers.onSearch(
+        title: title.replaceAll(' ', ''),
       ),
     );
   }

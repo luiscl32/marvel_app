@@ -22,19 +22,28 @@ class ErrorView extends StatelessWidget {
             const Icon(
               Icons.error_outline,
               color: Colors.red,
-              size: 48,
+              size: 128,
             ),
             const SizedBox(
               height: 24,
             ),
-            const Text('Network error detected , press refresh to try again.'),
+            const Text(
+              'Network error detected, please, press the refresh button to try again.',
+              style: TextStyle(color: Colors.black54, fontSize: 20),
+            ),
             Expanded(child: Container()),
-            ElevatedButton(
-              onPressed: onPress,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red.shade600,
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: onPress,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600,
+                ),
+                child: const Text(
+                  'Refresh',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
-              child: const Text('refresh'),
             ),
           ],
         ),

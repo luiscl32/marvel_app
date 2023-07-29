@@ -8,14 +8,24 @@ class DashboardHandlers {
 
   final BuildContext context;
 
-  void onFetchNewComicsData({required offset}) async {
-    await context
-        .read<DashboardCubit>()
-        .fetchData(endpoint: 'comics', offset: offset);
+  DashboardCubit _getCubit() {
+    return context.read<DashboardCubit>();
   }
 
-  void onSearch({required String title}) async {
-    await context.read<DashboardCubit>().onSearch(title: title);
+  void onFetchNewComicsData({required offset}) {
+    _getCubit().fetchData(endpoint: 'comics', offset: offset);
+  }
+
+  void onSearch({required String title}) {
+    print(title);
+
+    if (title.isEmpty) {
+      print('gotcha');
+      retry();
+    } else {
+      print('here search');
+      _getCubit().onSearch(title: title);
+    }
   }
 
   void onNavigateToDetail({required int id}) {
@@ -29,6 +39,7 @@ class DashboardHandlers {
   }
 
   void retry() {
-    context.read<DashboardCubit>().fetchData(endpoint: 'comics', offset: 0);
+    _getCubit().retry();
+    _getCubit().fetchData(endpoint: 'comics', offset: 0);
   }
 }

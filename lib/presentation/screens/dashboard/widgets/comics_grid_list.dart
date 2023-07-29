@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_app/domain/models/marvel_general.model.dart';
 import 'package:marvel_app/presentation/commons/widgets.dart';
 import 'package:marvel_app/presentation/screens/dashboard/handlers/dashboard.handlers.dart';
+import 'package:marvel_app/presentation/screens/dashboard/widgets/dashboard.widgets.dart';
 
 class ComicsGridList extends StatefulWidget {
   const ComicsGridList({super.key, required this.marvelData});
@@ -46,6 +47,10 @@ class _ComicsGridListState extends State<ComicsGridList> {
   @override
   Widget build(BuildContext context) {
     List<Result> results = widget.marvelData;
+
+    if (results.isEmpty) {
+      return const SearchNotFound();
+    }
 
     return CustomScrollView(
       shrinkWrap: true,

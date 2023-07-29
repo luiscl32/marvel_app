@@ -47,7 +47,7 @@ class _Detail extends StatelessWidget {
     final String extension = result.thumbnail!.extension!;
     final String title = result.title ?? 'This comic no have a title';
     final String description =
-        result.description ?? 'This comic no have a description.';
+        result.description ?? 'this comic no have a description';
     final String format = result.format!.toString();
     final int pages = result.pageCount!;
     final int issueNumber = result.issueNumber!;

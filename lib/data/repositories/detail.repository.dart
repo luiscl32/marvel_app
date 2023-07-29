@@ -6,15 +6,19 @@ import 'package:marvel_app/domain/repository/detail.abstract.repository.dart';
 class DetailRepository extends AbstractDetailRepository {
   @override
   Future<DetailModel?> fetchComicDetail({required int id}) async {
-    Dio dio = Dio();
-    String url = ApiConfig.getRequest('comics/$id', 0, '');
+    try {
+      Dio dio = Dio();
+      String url = ApiConfig.getRequest('comics/$id', 0, '');
 
-    final Response response = await dio.get(url);
+      final Response response = await dio.get(url);
 
-    if (response.data == null) {
+      if (response.data == null) {
+        return null;
+      }
+
+      return DetailModel.fromJson(response.data);
+    } catch (_) {
       return null;
     }
-
-    return DetailModel.fromJson(response.data);
   }
 }

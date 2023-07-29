@@ -29,7 +29,9 @@ class DetailDescription extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Text(
-              description,
+              description.isEmpty
+                  ? 'This Comic no have a description.'
+                  : description,
               style: const TextStyle(fontSize: 16, color: Colors.black45),
               textAlign: TextAlign.justify,
             ),

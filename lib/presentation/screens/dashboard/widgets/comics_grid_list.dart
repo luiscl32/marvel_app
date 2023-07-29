@@ -53,9 +53,24 @@ class _ComicsGridListState extends State<ComicsGridList> {
     }
 
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       shrinkWrap: true,
       controller: _scrollController,
       slivers: [
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            width: double.infinity,
+            height: 40,
+            child: Text(
+              'Latest comics',
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
         SliverGrid.builder(
           itemCount: results.length,
           itemBuilder: (_, index) {

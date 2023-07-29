@@ -3,13 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_app/domain/bloc/detail/detail_cubit.dart';
 import 'package:marvel_app/domain/models/detail.model.dart';
 import 'package:marvel_app/presentation/commons/widgets.dart';
+import 'package:marvel_app/presentation/screens/detail/handlers/detail.handlers.dart';
 import 'package:marvel_app/presentation/screens/detail/widgets/detail.widgets.dart';
 
 class DetailView extends StatelessWidget {
-  const DetailView({super.key});
+  const DetailView({super.key, required this.id});
+
+  final int id;
 
   @override
   Widget build(BuildContext context) {
+    DetailHandlers _handlers = DetailHandlers(context);
     return BlocBuilder<DetailCubit, DetailState>(
       builder: (context, state) {
         return state.when(
@@ -18,8 +22,10 @@ class DetailView extends StatelessWidget {
           loaded: (result) => _Detail(
             result: result,
           ),
-          error: () => const Center(
-            child: Text('error'),
+          error: () => ErrorView(
+            onPress: () => _handlers.retry(
+              id: id,
+            ),
           ),
         );
       },

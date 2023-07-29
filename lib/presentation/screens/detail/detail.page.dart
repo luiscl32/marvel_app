@@ -15,7 +15,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
         body: BlocProvider(
       create: (context) => DetailCubit()..fetchDetail(id: id),
-      child: const DetailView(),
+      child: DetailView(id: id),
     ));
   }
 }

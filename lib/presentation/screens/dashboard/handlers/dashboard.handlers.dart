@@ -27,4 +27,8 @@ class DashboardHandlers {
       },
     );
   }
+
+  void retry() {
+    context.read<DashboardCubit>().fetchData(endpoint: 'comics', offset: 0);
+  }
 }
